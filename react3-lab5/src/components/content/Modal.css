@@ -1,0 +1,69 @@
+.modal-rework {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(31, 30, 30, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-modal-rework {
+  position: relative;
+  background-color: grey;
+  padding: 2.8rem;
+  border-radius: 2rem;
+  width: min(80vw, 50rem);
+}
+.edit-modal-btn-cerr {
+  position: absolute;
+  transform: translate(-30%, 30%);
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.modal-formul-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.edit-modal-rework h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+.modal-formul-container label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: -0.8rem;
+}
+.modal-formul-container input {
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid #ccc;
+}
+.modal-formul-container textarea {
+  padding: 0.8rem;
+  font-size: 1.8rem;
+  border-radius: 0.8rem;
+  border: 3px solid #ccc;
+  height: 12rem;
+}
+.modal-formul-container button {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  background-color: blue;
+  cursor: pointer;
+  color: yellowgreen;
+  font-weight: bold;
+  text-align: center;
+  transition: scale 0.8s;
+}
+.modal-formul-container button:hover {
+  scale: 1.02;
+}
+.modal-formul-error {
+  color: white;
+  font-size: 0.9rem;
+}

@@ -114,3 +114,7 @@ meter {
 ::-webkit-details-marker {
   display: none;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}

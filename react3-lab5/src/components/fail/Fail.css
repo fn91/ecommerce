@@ -1,0 +1,13 @@
+.error-layout {
+  max-width: 40rem;
+  margin: 5rem auto;
+  padding: 1rem;
+}
+.error-layout h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.error-work {
+  text-decoration: underline;
+  color: red;
+}

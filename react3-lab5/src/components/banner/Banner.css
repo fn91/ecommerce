@@ -1,0 +1,15 @@
+.banner {
+  width: 50%;
+  margin: 1rem auto;
+  background-color: rgb(14, 85, 167);
+  background: linear-gradient(
+    90deg,
+    rgb(49, 153, 80) 0%,
+    rgba(0, 0, 115, 1) 100%
+  );
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+}

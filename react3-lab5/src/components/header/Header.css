@@ -1,0 +1,44 @@
+.header-contenedor{
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.5rem;
+  align-items: center;
+}
+.dark-mode {
+  background-color: #221a1a;
+  color: rgb(121, 137, 151);
+}
+.light-mode {
+  background-color: #e4d8d8;
+  color: #262626;
+}
+.header-titulo {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.header-contenedor > form {
+  flex-grow: 2;
+  display: flex;
+}
+.search-searc {
+  background-color: white;
+  padding: 0.2rem 0.8rem;
+  color: black;
+  font-size: 0.8rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  width: 100%;
+}
+.search-searc::placeholder {
+  color: #a0a0a0;
+}
+.header-submit-btn {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: white;
+  color: black;
+  padding: 0.2rem 0.9rem;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  /* background-color: #262626;
+  color: white; */
+  font-size: 0.9rem;
+  padding: 2rem;
+}
+.dark-mode {
+  background-color: #262626;
+  color: rgb(36, 125, 202);
+}
+.light-mode {
+  background-color: #00c542;
+  color: #200d0d;
+}
+.footer-details {
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+}
+@media (max-width: 30rem) {
+  .footer-details {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.footer-details li:first-child {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
