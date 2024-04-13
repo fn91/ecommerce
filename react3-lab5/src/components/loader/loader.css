@@ -1,0 +1,9 @@
+.loader-contenedor {
+  max-width: 40rem;
+  margin: 5rem auto;
+  padding: 1rem;
+}
+.loader-contenedor h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

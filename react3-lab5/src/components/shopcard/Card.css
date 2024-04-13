@@ -1,0 +1,32 @@
+.shopping-card-list {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  border: 1.5px solid rgb(0 0 0 / 10%);
+  padding: 1.5rem;
+}
+.shopping-card-list {
+  max-width: 8rem;
+  aspect-ratio: 2;
+  object-fit: cover;
+  display: block;
+}
+.shopping-card-list {
+  font-size: 1.8rem;
+}
+.notificacion-bubble-container-cart {
+  position: relative;
+  display: inline-block;
+}
+.notification-bubble-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(4, 25, 63);
+  color: rgb(172, 156, 156);
+  border-radius: 40%;
+  padding: 0.8rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  transform: translate(40%, -40%);
+}

@@ -1,0 +1,23 @@
+.count-ul {
+  display: flex;
+  gap: 1.5rem;
+}
+.count-ul > li {
+  cursor: pointer;
+}
+.notificacion-bubble-container {
+  position: relative;
+  display: inline-block;
+}
+.notification-bubble {
+  position: absolute;
+  top: -2.5px;
+  right: -2.5px;
+  background-color: rgb(35, 99, 219);
+  color: white;
+  border-radius: 40%;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transform: translate(40%, -40%);
+}

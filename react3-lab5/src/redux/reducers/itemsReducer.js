@@ -1,150 +1,93 @@
-import { createSlice ,createAsyncThunk} from "@reduxjs/toolkit";
-import * as ITEMS_API from "../../reduxitemapi/products";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import * as PRODUCT_API from "../../api/productsmiddle.js";
 
+const initialData = {
+  products: null,
+  loading: true,
+  error: "sasa",
+};
 
- // Async trunks
+export const getProductsThunk = createAsyncThunk(
+  "products/getProducts",
+  async () => {
+    const response = await PRODUCT_API.getProductsMiddleware();
+    return response;
+  }
+);
 
+export const removeProductThunk = createAsyncThunk(
+  "products/removeProduct",
+  async (id) => {
+    await PRODUCT_API.removeProductMiddleware(id);
+    return id;
+  }
+);
 
- export const getTrunks = createAsyncThunk (
-
-"products/getProducts",
-
-async () =>{
-
-try {
-
-const response = await ITEMS_API.getTrunksMiddleware()
-return response
-
-}catch (fail){
-throw new fail (fail.message)
-
-}
-
-
-
-}
-
-
- );
-
-
- export const addProductThunk = createAsyncThunk(
+export const addProductThunk = createAsyncThunk(
   "products/addProduct",
   async (newProduct) => {
-    try {
-      await ITEMS_API.addProductMid(newProduct);
-      return newProduct;
-    } catch (fail) {
-      throw new fail(fail.message);
-    }
+    await PRODUCT_API.addProductMiddleware(newProduct);
+    return newProduct;
   }
 );
 export const updateProductThunk = createAsyncThunk(
   "products/updateProduct",
-  async (products) => {
-    try {
-      await ITEMS_API.updateProductMid(products);
-      return products;
-    } catch (fail) {
-      throw new fail(fail.message);
-    }
-  }
-);
-
-export const deleteProductThunk = createAsyncThunk(
-  "products/deleteProduct",
-  async (id) => {
-    try {
-      await ITEMS_API.deleteProductMid(id);
-      return deleteProductThunk;
-    } catch (fail) {
-      throw new fail(fail.message);
-    }
+  async (product) => {
+    await PRODUCT_API.updateProductMiddleware(product);
+    return product;
   }
 );
 
 
 
+const productsSlice = createSlice({
+  name: "products",
+  initialState: initialData,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProductsThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = action.payload;
+      })
+      .addCase(removeProductThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = state.products.filter(
+          (product) => product.id !== action.payload
+        );
+      })
+      .addCase(addProductThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = [...state.products, action.payload];
+      })
+      .addCase(updateProductThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = state.products.map((product) =>
+          product.id === action.payload.id ? action.payload : product
+        );
+      })
+      .addMatcher(
+        (action) => action.type.endsWith("/pending"),
+        (state) => {
+          state.loading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith("/rejected"),
+        (state, action) => {
+          state.loading = false;
+          state.error = action.error.message;
+         
+        }
+      );
+  },
+});
 
-//Slices
+export const { getProducts } = productsSlice.actions;
 
-const InicioState = {
-products:null,
-loading:true,
-error:null,
+export const getAllProducts = (state) => state.products.products;
+export const getProductsLoading = (state) => state.products.loading;
+export const getProductsError = (state) => state.products.error;
 
-
-}
-
-const productSlice = createSlice ({
-name: "products",
-InicioState,
-reducers:{},
-extraReducers:(builder)=> {
-builder
-
-.addCase(getTrunks.fulfilled,(state,action)=>{
-
-state.loading= false;
-state.product=action.payload;
-
-})
-
-.addCase(deleteProductThunk.fulfilled, (state, action) => {
-  state.loading = false;
-  state.products = state.products.filter(
-    (product) => product.id !== action.payload
-  );
-})
-.addCase(addProductThunk.fulfilled, (state, action) => {
-  state.loading = false;
-  state.products = [...state.products, action.payload];
-})
-.addCase(updateProductThunk.fulfilled, (state, action) => {
-  state.loading = false;
-  state.products = state.products.map((product) =>
-    product.id === action.payload.id ? action.payload : product
-  );
-})
-
-
-.addMatcher(
-(action) => action.type.endsWitch("pending"),
-
-(state,action) => {
-  state.loading=false;
-  state.error=action.error.message;
-
-
-}
-
-)
-
-.addMatcher(
-  (action) => action.type.endsWitch("rejected"),
-  
-  (state,action) => {
-    state.loading=false;
-    state.error=action.error.message;
-  
-  
-  }
-  
-  )
-  
-
-
-
-
-}
-
-
-})
-
-export default productSlice.reducer
-
-export const {getProducts}= productSlice.actions;
-export const getAllProducts= (state)=> state.products.products;
-export const getProductsLoad = (state)=> state.products.loading;
-export const getProductsFail= (state)=> state.products.error;
+export default productsSlice.reducer;

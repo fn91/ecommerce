@@ -1,0 +1,8 @@
+.navigator {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin-top: 0.9rem;
+}

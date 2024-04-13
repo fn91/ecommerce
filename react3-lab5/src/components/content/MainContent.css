@@ -1,0 +1,18 @@
+.princi-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1.8rem;
+  margin: 0.8rem;
+}
+.btn-modal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0.9rem 2rem;
+  cursor: pointer;
+}

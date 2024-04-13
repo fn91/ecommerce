@@ -1,0 +1,48 @@
+.product-container-example {
+  display: flex;
+  gap: 4rem;
+  max-width: min(90vw, 60rem);
+  margin: 5rem auto;
+}
+
+.product-container-example img {
+  width: 70%;
+  max-width: 30rem;
+  height: auto;
+}
+
+.product-detail-description-example {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.product-detail-description-example a {
+  text-decoration: underline;
+  color: gray;
+  align-self: flex-end;
+}
+.product-detail-description-example h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.product-detail-price-example {
+  color: rgb(148, 133, 0);
+}
+.product-detail-description-example button {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: #009b3e;
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: scale 0.8s;
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: 2rem;
+}
+.product-detail-description-example button:hover {
+  scale: 2.02;
+}
